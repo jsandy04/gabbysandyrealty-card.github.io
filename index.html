@@ -5,6 +5,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gabby Sandy · Real Estate</title>
+ <!-- Google Analytics 4 — Gabby Sandy -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V0255S3ND4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-V0255S3ND4');
+
+  function track(e, p){ gtag('event', e, p || {}); }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var phone = document.querySelector('a[href="tel:4806788817"]');
+    if(phone) phone.addEventListener('click', function(){ track('phone_tap'); });
+
+    var email = document.querySelector('a[href^="mailto:"]');
+    if(email) email.addEventListener('click', function(){ track('email_tap'); });
+
+    document.querySelectorAll('.btn-ghost').forEach(function(el){
+      el.addEventListener('click', function(){
+        var l = el.querySelector('.btn-label');
+        track('cta_tap', { label: l ? l.textContent.trim() : '' });
+      });
+    });
+
+    var vcf = document.querySelector('.vcf-btn');
+    if(vcf) vcf.addEventListener('click', function(){ track('contact_download'); });
+
+    document.querySelectorAll('.soc').forEach(function(el){
+      el.addEventListener('click', function(){
+        track('social_tap', { platform: el.getAttribute('title') || '' });
+      });
+    });
+  });
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
